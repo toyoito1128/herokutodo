@@ -70,9 +70,11 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
         //
+        // $todo=Todo::find($request->id);
+        // return view("todos.index",["todo"=>$todo]);
     }
 
     /**

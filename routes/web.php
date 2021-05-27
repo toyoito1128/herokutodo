@@ -22,7 +22,11 @@ Route::get("/", [TodoController::class, "index"])->name("todos.index");
 
 Route::post("/todo/create", [TodoController::class, "store"])->name("todos.create");
 
-// Route::get("/{todo}", [TodoController::class, "update"])->name("todos.update");
-Route::post("/{todo}", [TodoController::class, "update"])->name("todos.update");
+
+Route::get("/update/{todo}", [TodoController::class, "update"])->name("todos.update");
+Route::post("/update/{todo}", [TodoController::class, "update"])->name("todos.update");
+
+
+Route::post("/{todo}", [TodoController::class, "destroy"])->name("todos.delete");
 
 Route::get("/{todo}", [TodoController::class, "destroy"])->name("todos.delete");

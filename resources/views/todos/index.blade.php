@@ -127,11 +127,19 @@
         <tbody>
           @foreach($todos as $todo)
           <tr>
-            <td>{{$todo->created_at}}</td>
-            <td><input type=" text" name="content" value="{{$todo->content}}" class="content-mini">
-            </td>
-            <td><a href="{{ route('todos.update', $todo->id) }}" class="updatebtn">更新</a></td>
-            <td><a href="{{ route('todos.delete', $todo->id) }}" class="deletebtn">削除</a></td>
+            <form action="{{ route('todos.update', $todo->id) }}" method="POST">
+              @csrf
+              <td>{{$todo->created_at}}</td>
+              <td>
+                <input type=" text" name="content" value="{{$todo->content}}" class="content-mini">
+              </td>
+              <td>
+                <a href="/update/{todo}" class="updatebtn">更新</a>
+              </td>
+              <td>
+                <a href="{{ route('todos.delete', $todo->id) }}" class="deletebtn">削除</a>
+              </td>
+            </form>
           </tr>
           @endforeach
         </tbody>

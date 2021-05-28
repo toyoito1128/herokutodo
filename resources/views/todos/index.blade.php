@@ -38,6 +38,7 @@
       color: #FF99FF;
       padding: 8px;
       font-size: 16px;
+      font-weight: bolder;
       border-color: #FF99FF;
       transition: all 0.3s ease;
     }
@@ -76,10 +77,20 @@
       text-decoration: none;
     }
 
+    .deletebtn-a {
+      text-decoration: none;
+      color: #33CC33;
+    }
+
     .deletebtn:hover {
       background-color: #33CC33;
       color: white;
       cursor: pointer;
+    }
+
+    .deletebtn-a:hover {
+      text-decoration: none;
+      color: white;
     }
 
     .content-mini {
@@ -127,17 +138,17 @@
         <tbody>
           @foreach($todos as $todo)
           <tr>
-            <form action="{{ route('todos.update', $todo->id) }}" method="POST">
+            <form action="{{ route('todos.update', ['id'=>$todo->id]) }}" method="POST">
               @csrf
               <td>{{$todo->created_at}}</td>
               <td>
                 <input type=" text" name="content" value="{{$todo->content}}" class="content-mini">
               </td>
               <td>
-                <a href="/update/{todo}" class="updatebtn">更新</a>
+                <button type="submit" class="updatebtn">更新</button>
               </td>
               <td>
-                <a href="{{ route('todos.delete', $todo->id) }}" class="deletebtn">削除</a>
+                <form action="{{ route('todos.delete', ['id'=>$todo->id])}}" method="POST"><button type="submit" class="deletebtn">削除</button></form>
               </td>
             </form>
           </tr>

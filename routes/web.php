@@ -24,9 +24,8 @@ Route::post("/todo/create", [TodoController::class, "store"])->name("todos.creat
 
 
 // Route::get("/update/{todo}", [TodoController::class, "update"])->name("todos.update");
-Route::post("/update", [TodoController::class, "update"])->name("todos.update");
+Route::post("/todo/update", [TodoController::class, "update"])->name("todos.update");
 
 
-Route::post("/{id}", [TodoController::class, "destroy"])->name("todos.delete");
+Route::post("/todo/delete/{id}", [TodoController::class, "destroy"])->name("todos.delete");
 
-// Route::get("/{id}", [TodoController::class, "destroy"])->name("todos.delete");

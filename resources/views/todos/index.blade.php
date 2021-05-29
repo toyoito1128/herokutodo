@@ -147,13 +147,16 @@
               <td>
                 <button type="submit" class="updatebtn">更新</button>
               </td>
-              <td>
-                <form action="{{ route('todos.delete', ['id'=>$todo->id])}}" method="POST"><button type="submit" class="deletebtn">削除</button></form>
-              </td>
             </form>
+              <td>
+                <form action="{{ route('todos.delete', ['id'=>$todo->id])}}" method="POST">
+                  @csrf
+                  <button type="submit" class="deletebtn">削除</button>
+                </form>
+              </td>
           </tr>
           @endforeach
-        </tbody>
+        </tbondy>
       </table>
     </div>
   </div>

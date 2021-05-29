@@ -109,8 +109,8 @@ class TodoController extends Controller
     public function destroy($id)
     {
         //
-        Todo::find($id)->delete();
-        // return redirect("/");
+        Todo::find($id)->delete(); 
+        return redirect("/");
     }
 
 }
